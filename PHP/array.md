@@ -25,3 +25,15 @@ $x = [
 
 echo $x["aaa"]; // 1
 ```
+
+# sort
+``` php
+sort($array);  // valueを昇順でソート。keyは消去され新たに割り振られる
+rsort($array); // valueを降順でソート
+
+ksort($array); // keyを昇順でソート
+krsort($array);// keyを降順でソート
+
+asort($array); // valueを昇順でソート。keyは保持される
+arsort($array);// valueを降順でソート
+```
