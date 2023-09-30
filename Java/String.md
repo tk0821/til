@@ -1,5 +1,26 @@
 # 文字列操作
 
+### 生成
+``` Java
+// Stringオブジェクトの生成
+
+// 文字列リテラルで初期化
+String str1 = "aaaaa";
+
+// コンストラクタ
+// Stringを渡す
+String str2 = new String("bbbbb");
+
+// char型配列を渡す
+char[] c = { 'c', 'c', 'c', 'c', 'c' };
+String str3 = new String(c); 
+
+// StringBuilder引数を渡す
+StringBuilder sb = new StringBuilder();
+sb.append("ddddd");
+String str4 = new String(sb); 
+```
+
 ### 比較
 ```Java
 public static void main(String[] args) {
