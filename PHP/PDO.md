@@ -27,7 +27,7 @@ $stmt = $pdo->prepare("insert into table_name(name, mail, password, picture, com
 
 $stmt->bindValue(1, $_POST['name']);
 ...
-$stmt->bindValue(1, $_POST['comments']);
+$stmt->bindValue(5, $_POST['comments']);
 
 $stmt->execute();
 $pdo=NULL;
