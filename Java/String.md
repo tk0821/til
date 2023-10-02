@@ -36,6 +36,30 @@ public static void main(String[] args) {
 	System.out.println(str1.compareToIgnoreCase(str2)); // 0
 }
 ```
+Javaの文字列は不変であるため、不要な生成を避けるためにコンスタントプールと呼ばれる定数を記憶するためのメモリに格納される。
+
+以降に、同じ文字列を生成する場合、コンスタントプールに文字列が記憶されているため、同じ参照になる。
+
+internメソッドはコンスタントプールに文字列があるかを確認しあればその文字列、なければプールに追加しこの文字列オブジェクトを返す。
+
+```Java
+public class Main {
+	public static void main(String[] args) {
+
+		String str1 = "hoge";
+		String str2 = "hoge";
+		String str3 = new String("hoge");
+
+		System.out.println(str1 == str2); //true
+		System.out.println(str1.equals(str2)); //true
+		System.out.println(str1 == str3); //false
+		System.out.println(str1.equals(str3)); //true
+		System.out.println(str1.intern() == "hoge"); //true
+		System.out.println(str1.intern() == str2.intern()); //true
+		System.out.println(str1.intern() == str3.intern()); //true
+	}
+}
+```
 
 ### 長さ
 ```Java
