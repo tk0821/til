@@ -18,7 +18,11 @@ String str3 = new String(c);
 // StringBuilder引数を渡す
 StringBuilder sb = new StringBuilder();
 sb.append("ddddd");
-String str4 = new String(sb); 
+String str4 = new String(sb);
+
+// valueOfメソッド
+char[] ch = {'a', 'b', 'c'};
+String str5 = String.valueOf(ch);
 ```
 
 ### 比較
