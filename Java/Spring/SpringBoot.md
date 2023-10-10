@@ -25,3 +25,7 @@ HTML, CSSなどプログラム実行時に使用するclassファイル以外の
 
 このアノテーションによってSpring Bootとして実行できるようになる。
 
+### メモ
+Spring Bootとしての機能は@SpringBootApplicationアノテーションを付与して実行させることっぽい
+
+コードを書いていくときはSpring Frameworkについて調べる必要がありそう。
