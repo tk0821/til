@@ -14,15 +14,27 @@ import java.util.function.Consumer;
 
 public class Main {
   public static void main(String[] args) {
-    Consumer<String> c = (str) -> System.out.println(str);
+    Consumer<String> c = (str) -> System.out.println(str); // hello
     c.accept("hello");
   }
 }
 ```
-出力
-```
-hello
-```
 
 Consumerは引数を1つ受け取って戻り値を返さない動作を行う。
 ここでは、画面に出力させる動作を実装。
+
+## ローカル変数との関係
+ラムダ式でローカル変数にアクセスする場合、ラムダ式で値を変更できない。
+```Java
+public static void main(String[] string) {
+  int a = 10;
+  Test t1 = () -> { System.out.println(a); };  // 値を変更しないのでローカル変数にアクセスできる
+  Test t2 = () -> { System.out.println(a++); }; // エラー: ラムダ式から参照されるローカル変数は、finalまたは事実上のfinalである必要があります
+  t.test();
+}
+
+interface Test {
+  void test();
+  }
+}
+```
