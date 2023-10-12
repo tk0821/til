@@ -9,6 +9,8 @@ java.util.functionにまとまって定義されている。
 
 ローカルクラスや無名クラスをさらに短く書ける。
 
+## 主な関数型インターフェースとラムダ式を使った定義
+
 ### Consumer
 Consumerは引数を1つ受け取って戻り値を返さない動作を行う。
 
@@ -40,6 +42,8 @@ class Main {
 
 ### Predicate
 Predicateは引数を1つ受け取ってbooleanを返す動作を行う。
+
+メソッド名はtest
 ``` Java
 import java.util.function.Predicate;
 
@@ -53,6 +57,8 @@ class Main {
 
 ### Supplier
 Supplierは引数を受け取らず、戻り値を返す動作を行う。
+
+メソッド名はget
 ```java
 import java.util.function.Supplier;
 
