@@ -9,6 +9,10 @@ java.util.functionにまとまって定義されている。
 
 ローカルクラスや無名クラスをさらに短く書ける。
 
+### Consumer
+Consumerは引数を1つ受け取って戻り値を返さない動作を行う。
+
+メソッド名はaccept
 ``` java
 import java.util.function.Consumer;
 
@@ -19,9 +23,46 @@ public class Main {
   }
 }
 ```
+### Function
+Functionは引数を受け取って戻り値を返す動作を行う。
 
-Consumerは引数を1つ受け取って戻り値を返さない動作を行う。
-ここでは、画面に出力させる動作を実装。
+メソッド名はapply
+``` java
+import java.util.function.Function;
+
+class Main {
+  public static void main(String[] string) {
+    Function<Integer, String> f = x -> String.valueOf(x) + "が渡されました";
+    System.out.println(f.apply(10));  // 10が渡されました
+  }
+}
+```
+
+### Predicate
+Predicateは引数を1つ受け取ってbooleanを返す動作を行う。
+``` Java
+import java.util.function.Predicate;
+
+class Main {
+  public static void main(String[] string) {
+    Predicate<Integer> p = x -> x % 2 == 0;
+    System.out.println(p.test(10)); // true
+  }
+}
+```
+
+### Supplier
+Supplierは引数を受け取らず、戻り値を返す動作を行う。
+```java
+import java.util.function.Supplier;
+
+class Main {
+  public static void main(String[] string) {
+    Supplier<String> s = () -> { return "supplier"; };
+    System.out.println(s.get()); // supplier
+  }
+}
+```
 
 ## ローカル変数との関係
 ラムダ式でローカル変数にアクセスする場合、事実上finalである必要がある。
