@@ -24,13 +24,16 @@ Consumerは引数を1つ受け取って戻り値を返さない動作を行う�
 ここでは、画面に出力させる動作を実装。
 
 ## ローカル変数との関係
-ラムダ式でローカル変数にアクセスする場合、ラムダ式で値を変更できない。
+ラムダ式でローカル変数にアクセスする場合、事実上finalである必要がある。
 ```Java
 public static void main(String[] string) {
   int a = 10;
-  Test t1 = () -> { System.out.println(a); };  // 値を変更しないのでローカル変数にアクセスできる
-  Test t2 = () -> { System.out.println(a++); }; // エラー: ラムダ式から参照されるローカル変数は、finalまたは事実上のfinalである必要があります
+  Test t1 = () -> { System.out.println(a); };  // 値を変更していなければローカル変数にアクセスできる
+  //Test t2 = () -> { System.out.println(a++); }; // エラー: ラムダ式から参照されるローカル変数は、finalまたは事実上のfinalである必要があります
   t.test();
+
+  //ここでaを変更すると事実上finalとは言えないのでラムダ宣言でエラーが発生する
+  // a+=1;
 }
 
 interface Test {
