@@ -78,4 +78,54 @@ super();
 
 スーパークラスのコンストラクタが引数を必要とする場合、サブクラスでスーパークラスのコンストラクタを明示的に呼び出す必要がある。
 
+# メモ
 
+フィールドへのアクセスはインスタンスの変数の型で判断される。
+
+オーバーライドしているメソッドを呼び出す場合、オーバーライドしたクラスのフィールドを呼び出す。
+
+``` java
+class Main {
+  public static void main(String[] string) {
+    A a = new A();
+    A b = new B();
+    A c = new C();
+    B b2 = new B();
+    C c2 = new C();
+
+    a.test();  // 10
+    b.test();  // 20
+    c.test();  // 10
+    b2.test(); // 20
+    c2.test(); // 10
+
+    System.out.println(a.x);  // 10
+    System.out.println(b.x);  // 10
+    System.out.println(c.x);  // 10
+    System.out.println(b2.x); // 20
+    System.out.println(c2.x); // 30
+  }
+}
+
+class A {
+  final int x;
+  { x = 10; }
+
+  public void test() { System.out.println(x); }
+}
+
+class B extends A {
+  final int x;
+  { x = 20; }
+
+  @Override
+  public void test() {
+    System.out.println(x);
+  }
+}
+
+class C extends A {
+  final int x;
+  { x = 30; }
+}
+```
